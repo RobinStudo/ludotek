@@ -21,6 +21,12 @@ a{
     color: inherit;
 }
 
+.button{
+    border-radius: 5px;
+    background-color: var(--primary);
+    padding: 10px;
+}
+
 header{
     background: linear-gradient(to bottom right, var(--primary), var(--secondary));
     display: flex;
@@ -56,9 +62,45 @@ header nav ul li.separator:before{
     border: 2px solid var(--light);
 }
 
+header nav ul li a{
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--light);
+    transition: background-color 500ms, color 500ms;
+}
+
+header nav ul li a:hover{
+    color: var(--primary);
+    background-color: var(--light);
+}
+
 main{
     flex: 1;
 }
+
+.landing{
+    position: relative;
+    height: 600px;
+    background-image: url("../image/landing.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.landing-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--light);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
 
 footer{
     color: var(--light);

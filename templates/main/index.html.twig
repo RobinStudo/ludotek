@@ -5,5 +5,13 @@
 {% endblock %}
 
 {% block body %}
-<h1>Ludotek</h1>
+<section class="landing">
+    <div class="landing-overlay">
+        <h1>Ludotek, votre compagnon de jeux</h1>
+        <p>
+            Gérez votre ludothéque facilement et partagez vos critiques
+        </p>
+        <a href="{{ path('game_list') }}" class="button">Découvrir les jeux</a>
+    </div>
+</section>
 {% endblock %}
