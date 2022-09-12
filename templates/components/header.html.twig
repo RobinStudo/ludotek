@@ -1,0 +1,22 @@
+<header>
+    <a href="{{ path('main_index') }}" class="identity">
+        <img src="{{ asset('image/logo.png') }}" alt="Logo de Ludotek : deux dés">
+        Ludotek
+    </a>
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ path('game_list') }}">Catalogue</a>
+            </li>
+            <li>
+                <a href="{{ path('game_create') }}">Ajouter un jeu</a>
+            </li>
+            <li class="separator">
+                <a href="{{ path('user_register') }}">Inscription</a>
+            </li>
+            <li>
+                <a href="{{ path('user_login') }}">Connexion</a>
+            </li>
+        </ul>
+    </nav>
+</header>

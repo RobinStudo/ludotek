@@ -1,3 +1,81 @@
-body{
+:root{
+    --primary: #f46b45;
+    --secondary: #eea849;
+    --light: #f5f6fa;
+    --dark: #2f3640;
+    --success: #27ae60;
+    --error: #c0392b;
+}
 
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: var(--light);
+}
+
+header .identity{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+header .identity img{
+    height: 30px;
+    margin-right: 10px;
+}
+
+header nav ul{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+header nav ul li.separator:before{
+    content: "";
+    margin: 0 30px 0 10px;
+    border: 2px solid var(--light);
+}
+
+main{
+    flex: 1;
+}
+
+footer{
+    color: var(--light);
+}
+
+footer ul{
+    background-color: var(--dark);
+    padding: 20px 10px;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+footer p{
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    background-color: var(--primary);
 }
