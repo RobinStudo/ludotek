@@ -1,7 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GameController!{% endblock %}
+{% block title %}
+    {{ game.name }} - {{ parent() }}
+{% endblock %}
 
 {% block body %}
-<h1>Fiche de jeu</h1>
+    <h1>{{ game.name }}</h1>
+    <p>{{ game.description|nl2br }}</p>
+    <span>{{ game.category.name }}</span>
+    <span>{{ game.minimumAge }}</span>
+    <span>
+        Nombre de joueur : {{ game.minimumPlayer }}
+        {% if game.maximumPlayer %}
+            - {{ game.maximumPlayer }}
+        {% endif %}
+    </span>
+    <span>
+        {{ game.duration|date('H:i') }}
+    </span>
+    <span>
+        {{ game.releaseAt|date('d/m/Y') }}
+    </span>
+    <span>
+        {% for editor in game.editors %}
+            {{ editor.name }}
+        {% endfor %}
+    </span>
+    <span>
+        {% for gameDesigner in game.designers %}
+            {{ gameDesigner.designer.name }}
+        {% endfor %}
+    </span>
+    <img src="{{ asset('image/game/' ~ game.picture) }}" alt="{{ game.name }}">
 {% endblock %}

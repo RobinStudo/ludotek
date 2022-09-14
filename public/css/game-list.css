@@ -24,15 +24,23 @@
     top: 5px;
     right: 5px;
     padding: 5px;
-    border-radius: 5px;
-    background-color: var(--dark);
-    color: var(--light);
+
 }
 
 .game .game-detail{
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.spacer{
+    flex: 1;
 }
 
 .game .game-detail h2{
     margin: 0;
+}
+
+.game .game-detail a{
+    align-self: flex-end;
 }

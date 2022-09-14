@@ -15,15 +15,18 @@
         <article class="game">
             <div class="game-picture">
                 <img src="{{ asset('image/game/' ~ game.picture) }}" alt="{{ game.name }}">
-                <span class="game-category">{{ game.category.name }}</span>
+                <span class="game-category badge">{{ game.category.name }}</span>
             </div>
             <div class="game-detail">
                 <h2>{{ game.name }}</h2>
                 <p>
                     {{ game.description|slice(0, 240) }} ...
                 </p>
+                <div class="spacer"></div>
+                <a href="{{ path('game_single', {id: game.id}) }}" class="button">
+                    Découvrir
+                </a>
             </div>
-
         </article>
     {% endfor %}
 {% endblock %}
