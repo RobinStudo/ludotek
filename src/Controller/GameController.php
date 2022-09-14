@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\GameRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,9 +12,13 @@ class GameController extends AbstractController
 {
 
     #[Route('', name: 'list')]
-    public function list(): Response
+    public function list(GameRepository $gameRepository): Response
     {
-        return $this->render('game/list.html.twig');
+        $games = $gameRepository->findBy([], ['name' => 'ASC']);
+
+        return $this->render('game/list.html.twig', [
+            'games' => $games,
+        ]);
     }
 
     #[Route('/{id}', name: 'single', requirements: ["id" => "\d+"])]

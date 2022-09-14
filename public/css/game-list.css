@@ -1,0 +1,38 @@
+.game{
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.game .game-picture{
+    position: relative;
+    height: 200px;
+    padding: 5px;
+
+}
+
+.game .game-picture img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.game .game-category{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.game .game-detail{
+    padding: 10px;
+}
+
+.game .game-detail h2{
+    margin: 0;
+}

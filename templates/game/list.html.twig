@@ -1,7 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GameController!{% endblock %}
+{% block title %}
+    Catalogue - {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/game-list.css') }}">
+{% endblock %}
 
 {% block body %}
-<h1>Liste des jeux</h1>
+    <h1>Catalogue</h1>
+
+    {% for game in games %}
+        <article class="game">
+            <div class="game-picture">
+                <img src="{{ asset('image/game/' ~ game.picture) }}" alt="{{ game.name }}">
+                <span class="game-category">{{ game.category.name }}</span>
+            </div>
+            <div class="game-detail">
+                <h2>{{ game.name }}</h2>
+                <p>
+                    {{ game.description|slice(0, 240) }} ...
+                </p>
+            </div>
+
+        </article>
+    {% endfor %}
 {% endblock %}
