@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Game;
+use App\Form\GameType;
 use App\Repository\GameRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,6 +47,11 @@ class GameController extends AbstractController
     #[Route('/create', name: 'create')]
     public function form(): Response
     {
-        return $this->render('game/form.html.twig');
+        $game = new Game();
+        $form = $this->createForm(GameType::class, $game);
+
+        return $this->render('game/form.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }

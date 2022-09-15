@@ -7,6 +7,10 @@
     --error: #c0392b;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -27,6 +31,8 @@ a{
     background-color: var(--primary);
     padding: 10px;
     color: var(--light);
+    border: none;
+    cursor: pointer;
 }
 
 .badge{
