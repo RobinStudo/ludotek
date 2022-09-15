@@ -44,7 +44,8 @@ class GameType extends AbstractType
                 'attr' => [
                     'min' => 1,
                     'max' => 100,
-                ]
+                ],
+                'help' => 'Si un nombre de joueur fixe, laissez ce champ vide'
             ])
             ->add('duration', null, [
                 'label' => 'Durée moyenne',
@@ -76,6 +77,9 @@ class GameType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Game::class,
+            'attr' => [
+                'novalidate' => 'novalidate',
+            ]
         ]);
     }
 }
