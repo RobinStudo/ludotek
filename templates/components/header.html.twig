@@ -8,15 +8,26 @@
             <li>
                 <a href="{{ path('game_list') }}">Catalogue</a>
             </li>
-            <li>
-                <a href="{{ path('game_create') }}">Ajouter un jeu</a>
-            </li>
-            <li class="separator">
-                <a href="{{ path('user_register') }}">Inscription</a>
-            </li>
-            <li>
-                <a href="{{ path('user_login') }}">Connexion</a>
-            </li>
+            {% if is_granted('ROLE_USER') %}
+                <li>
+                    <a href="{{ path('game_create') }}">Ajouter un jeu</a>
+                </li>
+            {% endif %}
+            {% if app.user %}
+                <li class="separator">
+                    {{ app.user.username }}
+                </li>
+                <li>
+                    <a href="{{ path('user_logout') }}">Déconnexion</a>
+                </li>
+            {% else %}
+                <li class="separator">
+                    <a href="{{ path('user_register') }}">Inscription</a>
+                </li>
+                <li>
+                    <a href="{{ path('user_login') }}">Connexion</a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
 </header>

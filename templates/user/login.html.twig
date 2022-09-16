@@ -1,7 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
-<h1>Connexion</h1>
+    <h1>Connexion</h1>
+
+    <form method="post">
+        {% if error %}
+            <div class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <label for="inputEmail">Courriel</label>
+        <input type="email" value="{{ lastUsername }}" name="email" id="inputEmail" required autofocus>
+        <label for="inputPassword">Mot de passe</label>
+        <input type="password" name="password" id="inputPassword" required>
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+
+        <button>Connexion</button>
+    </form>
 {% endblock %}
+

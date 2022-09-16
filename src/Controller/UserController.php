@@ -10,14 +10,25 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 #[Route('', name: 'user_')]
 class UserController extends AbstractController
 {
     #[Route('/login', name: 'login')]
-    public function login(): Response
+    public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        return $this->render('user/login.html.twig');
+        if ($this->getUser()) {
+            return $this->redirectToRoute('main_index');
+        }
+
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('user/login.html.twig', [
+            'lastUsername' => $lastUsername,
+            'error' => $error,
+        ]);
     }
 
     #[Route('/register', name: 'register')]
@@ -42,5 +53,10 @@ class UserController extends AbstractController
         return $this->render('user/register.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route(path: '/logout', name: 'logout')]
+    public function logout(): void
+    {
     }
 }
