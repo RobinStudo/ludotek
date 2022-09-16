@@ -1,7 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Inscription - {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
+{% endblock %}
 
 {% block body %}
-<h1>Inscription</h1>
+    <h1>Inscription</h1>
+
+    <div class="form-box">
+        {{ form_start(form) }}
+
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.plainPassword) }}
+
+        <div class="form-end">
+            <button class="button">Confirmer</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
 {% endblock %}
